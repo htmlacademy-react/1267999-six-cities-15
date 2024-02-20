@@ -12,4 +12,11 @@ export default defineConfig({
     environment: 'jsdom',
     setupFiles: ['./src/setupTests.ts'],
   },
+  resolve: {
+    alias: {
+      app: '/src/app',
+      components: '/src/components',
+      pages: '/src/pages',
+    }
+  }
 });
