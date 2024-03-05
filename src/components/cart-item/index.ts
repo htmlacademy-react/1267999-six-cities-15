@@ -1,1 +1,1 @@
-export { default } from 'components/cart-item/cart-item';
+export { default } from './cart-item';

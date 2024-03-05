@@ -1,7 +1,8 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
+import { HelmetProvider } from 'react-helmet-async';
 import App from 'app';
-import { Settings } from './const';
+import { Settings } from './const/const.ts';
 
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement,
@@ -9,6 +10,8 @@ const root = ReactDOM.createRoot(
 
 root.render(
   <React.StrictMode>
-    <App cardsCount={Settings.CardsCount} />
+    <HelmetProvider>
+      <App cardsCount={Settings.CardsCount} />
+    </HelmetProvider>
   </React.StrictMode>,
 );
