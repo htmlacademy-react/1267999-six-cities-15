@@ -14,11 +14,12 @@ module.exports = {
   plugins: ['react-refresh'],
   rules: {
     'react-refresh/only-export-components': 'warn',
+    'react/jsx-closing-tag-location': 'off',
   },
   overrides: [
     {
-      files: [ '*test*' ],
-      rules: { '@typescript-eslint/unbound-method': 'off' }
+      files: ['*test*'],
+      rules: { '@typescript-eslint/unbound-method': 'off' },
     },
   ],
-}
+};

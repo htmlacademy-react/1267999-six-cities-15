@@ -1,8 +1,12 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
+
 import MainPage from 'pages/main-page';
-import { Path } from '../const';
 import LoginPage from 'pages/login-page';
 import NotFound from 'pages/not-found';
+import Offer from 'pages/offer';
+import FavoritesPage from 'pages/favorites-page';
+import ProtectedRoute from 'components/protected-route';
+import { AppRoute, AuthorizationStatus } from 'const/const';
 
 type TAppMainProps = {
   cardsCount: number;
@@ -11,16 +15,31 @@ type TAppMainProps = {
 function App({ cardsCount }: TAppMainProps) {
   const router = createBrowserRouter([
     {
-      path: Path.Main,
+      path: AppRoute.Main,
       element: <MainPage cardsCount={cardsCount} />,
     },
     {
-      path: Path.Login,
+      path: AppRoute.Login,
       element: <LoginPage />,
     },
     {
-      path: Path.NotFound,
+      path: AppRoute.Offers,
+      element: <Offer />,
+    },
+    {
+      path: AppRoute.NotFound,
       element: <NotFound />,
+    },
+    {
+      path: AppRoute.Favorites,
+      element: (
+        <ProtectedRoute
+          restrictedFor={AuthorizationStatus.NoAuth}
+          redirectTo={AppRoute.Login}
+        >
+          <FavoritesPage />
+        </ProtectedRoute>
+      ),
     },
   ]);
 

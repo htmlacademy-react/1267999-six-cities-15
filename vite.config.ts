@@ -17,6 +17,8 @@ export default defineConfig({
       app: '/src/app',
       components: '/src/components',
       pages: '/src/pages',
-    }
-  }
+      const: '/src/const',
+      layout: '/src/layout',
+    },
+  },
 });

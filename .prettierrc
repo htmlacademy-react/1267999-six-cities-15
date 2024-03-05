@@ -6,5 +6,8 @@
   "trailingComma": "all",
   "tabWidth": 2,
   "arrowParens": "always",
-  "endOfLine": "lf"
+  "endOfLine": "lf",
+  "bracketSameLine": false,
+  "jsxBracketSameLine": false,
+  "eslintIntegration": true
 }

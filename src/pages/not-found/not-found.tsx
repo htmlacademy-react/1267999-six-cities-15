@@ -1,8 +1,15 @@
-import styles from './styles.module.scss';
 import { clsx } from 'clsx';
+import { Helmet } from 'react-helmet-async';
+import styles from './styles.module.scss';
+
 function NotFound() {
   return (
     <div className="page page--gray page--main">
+      <Helmet>
+        <title>
+          Page not found six cities service for travelers - official website
+        </title>
+      </Helmet>
       <header className="header">
         <div className="container">
           <div className="header__wrapper">
@@ -81,7 +88,7 @@ function NotFound() {
           </section>
         </div>
         <div className={clsx('container', styles['not-found'])}>
-          <p className={styles['not-found__text']}>404</p>
+          <p className={styles['not-found']}>404</p>
           <h2>Page not found</h2>
         </div>
       </main>
