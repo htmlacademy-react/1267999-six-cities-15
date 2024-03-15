@@ -27,21 +27,11 @@
     "forceConsistentCasingInFileNames": true,
     "baseUrl": "src",
     "paths": {
-      "app/*": [
-        "app/*"
-      ],
-      "components/*": [
-        "components/*"
-      ],
-      "pages/*": [
-        "pages/*"
-      ],
-      "const/*": [
-        "const/*"
-      ],
-      "layout/*": [
-        "layout/*"
-      ]
+      "app/*": ["app/*"],
+      "components/*": ["components/*"],
+      "pages/*": ["pages/*"],
+      "layouts/*": ["layouts/*"],
+      "types/*": ["types/*"],
     }
   },
   "include": [

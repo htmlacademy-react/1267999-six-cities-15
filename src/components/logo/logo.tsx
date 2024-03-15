@@ -1,7 +1,7 @@
+import { AppRoute } from '../../const.ts';
 import { Link } from 'react-router-dom';
-import { AppRoute } from 'const/const';
 
-type TLogoProps = {
+type LogoProps = {
   type: 'header' | 'footer';
 };
 
@@ -16,9 +16,8 @@ const sizes = {
   },
 };
 
-function Logo({ type }: TLogoProps) {
+function Logo({ type }: LogoProps) {
   const size = sizes[type];
-
   return (
     <Link to={AppRoute.Main} className={`${type}__logo-link`}>
       <img

@@ -1,30 +1,32 @@
 import { createBrowserRouter, RouterProvider } from 'react-router-dom';
-
+import { AppRoute, AuthorizationStatus } from '../const.ts';
 import MainPage from 'pages/main-page';
 import LoginPage from 'pages/login-page';
-import NotFound from 'pages/not-found';
-import Offer from 'pages/offer';
 import FavoritesPage from 'pages/favorites-page';
+import NotFound from 'pages/not-found';
+import OfferPage from 'pages/offer-page';
 import ProtectedRoute from 'components/protected-route';
-import { AppRoute, AuthorizationStatus } from 'const/const';
+import { TOfferDetail } from 'types/offer-detail.ts';
+import { TReview } from 'types/review.ts';
 
-type TAppMainProps = {
-  cardsCount: number;
+type TAppPageProps = {
+  offers: TOfferDetail[];
+  reviews: TReview[];
 };
 
-function App({ cardsCount }: TAppMainProps) {
+function App({ offers, reviews }: TAppPageProps) {
   const router = createBrowserRouter([
     {
       path: AppRoute.Main,
-      element: <MainPage cardsCount={cardsCount} />,
+      element: <MainPage offers={offers} />,
     },
     {
       path: AppRoute.Login,
       element: <LoginPage />,
     },
     {
-      path: AppRoute.Offers,
-      element: <Offer />,
+      path: `${AppRoute.Offer}/:id`,
+      element: <OfferPage offers={offers} reviews={reviews} />,
     },
     {
       path: AppRoute.NotFound,
@@ -37,7 +39,7 @@ function App({ cardsCount }: TAppMainProps) {
           restrictedFor={AuthorizationStatus.NoAuth}
           redirectTo={AppRoute.Login}
         >
-          <FavoritesPage />
+          <FavoritesPage offers={offers} />
         </ProtectedRoute>
       ),
     },

@@ -1,14 +1,11 @@
-import { Helmet } from 'react-helmet-async';
-import MainLayout from 'layout/main-layout';
+import MainLayout from 'layouts/main-layout';
 import Header from 'components/header';
-import { LayoutClassName } from 'const/const';
+import { ClassName } from '../../const';
+import { Helmet } from 'react-helmet-async';
 
 function LoginPage() {
   return (
-    <MainLayout
-      header={<Header isNav={false} />}
-      className={LayoutClassName.Login}
-    >
+    <MainLayout header={<Header />} className={ClassName.Login}>
       <Helmet>
         <title>Login six cities service for travelers - official website</title>
       </Helmet>
