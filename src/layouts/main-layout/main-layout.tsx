@@ -1,13 +1,13 @@
-import { clsx } from 'clsx';
 import { ReactNode } from 'react';
+import clsx from 'clsx';
 
-type TLayoutProps = {
-  header: ReactNode;
+type TMainLayoutProps = {
   children: ReactNode;
+  header: ReactNode;
   className: string;
 };
 
-function MainLayout({ header, children, className }: TLayoutProps) {
+function MainLayout({ children, header, className }: TMainLayoutProps) {
   return (
     <div className={clsx('page', className)}>
       {header}
