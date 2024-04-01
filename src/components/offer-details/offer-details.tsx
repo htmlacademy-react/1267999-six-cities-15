@@ -1,16 +1,18 @@
 import Map from 'components/map';
 import { TOfferDetail } from 'types/offer-detail.ts';
-import ReviewsInfo from 'components/reviews-info';
-import ReviewsForm from 'components/reviews-form/reviews-form.tsx';
 import { TReview } from 'types/review.ts';
+import ReviewsBlock from 'components/reviews-block';
+import { TOfferItem } from 'types/offer-item.ts';
 
 type TOfferDetailsProps = {
   offer: TOfferDetail;
   reviews: TReview[];
+  nearOffers: TOfferItem[];
 };
 
-function OfferDetails({ offer, reviews }: TOfferDetailsProps) {
+function OfferDetails({ offer, reviews, nearOffers }: TOfferDetailsProps) {
   const {
+    id,
     images,
     isPremium,
     title,
@@ -108,20 +110,10 @@ function OfferDetails({ offer, reviews }: TOfferDetailsProps) {
               </p>
             </div>
           </div>
-          <section className="offer__reviews reviews">
-            <h2 className="reviews__title">
-              Reviews &middot; <span className="reviews__amount">1</span>
-            </h2>
-            <ul className="reviews__list">
-              {reviews.map((review) => (
-                <ReviewsInfo key={review.userUrl} review={review} />
-              ))}
-            </ul>
-            <ReviewsForm />
-          </section>
+          <ReviewsBlock reviews={reviews} />
         </div>
       </div>
-      <Map className="offer__map" />
+      <Map className="offer__map" offers={nearOffers} activeOfferId={id} />
     </section>
   );
 }

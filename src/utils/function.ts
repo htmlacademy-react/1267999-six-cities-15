@@ -1,9 +1,10 @@
 import dayjs from 'dayjs';
 
-function getCurrentDate(date: Date, isDay: boolean) {
+function getCurrentDate(date: Date, isDay = true) {
   if (isDay) {
     return dayjs(date).format('YYYY-MM-DD');
   }
+
   return dayjs(date).format('MMMM YYYY');
 }
 
@@ -12,7 +13,12 @@ function getStarsWidth(stars: number) {
     return `${stars}%`;
   }
   const width = (100 / 5) * stars;
+
   return `${width}%`;
 }
 
-export { getCurrentDate, getStarsWidth };
+function randomBoolean() {
+  return Math.random() >= 0.5;
+}
+
+export { getCurrentDate, getStarsWidth, randomBoolean };
